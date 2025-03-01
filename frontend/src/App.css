@@ -1,18 +1,22 @@
+/* Remove default margin and padding from the body and html */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 0; /* Remove padding to ensure it's at the very top */
   text-align: center;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-
-  
+  margin: 0; /* Remove default margin from h1 */
+  padding: 20px 0; /* Add some padding for spacing */
+  background-color: #f0f0f0; /* Optional: Add a background color */
+  width: 100%; /* Ensure it spans the full width */
 }
-
-
-
-
 
