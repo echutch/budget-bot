@@ -1,62 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { GoogleLogin } from 'react-google-login';
 
-const RegisterForm = () => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+const clientId = 'YOUR_CLIENT_ID'; // Replace with your Google OAuth Client ID
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Send registration data to Django backend
-    const res = await fetch('http://localhost:8000/api/register/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, phone, password }),
-    });
-
-    const data = await res.json();
-    if (data.success) {
-      alert('Check your email and phone for verification!');
-    } else {
-      alert('Error during registration!');
-    }
-
-    setLoading(false);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Phone Number"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit" disabled={loading}>
-        {loading ? 'Registering...' : 'Register'}
-      </button>
-    </form>
-  );
+const responseGoogle = (response) => {
+    console.log('Login Success:', response.profileObj);
+    // Send the access token to your backend for further processing
+    fetch('http://localhost:8000/auth/google/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: response.accessToken }),
+    })
+        .then((res) => res.json())
+        .then((data) => console.log('Backend response:', data))
+        .catch((error) => console.error('Error sending token to backend:', error));
 };
 
-export default RegisterForm;
+const handleFailure = (error) => {
+    console.log('Login Failed:', error);
+};
+
+const GoogleAuth = () => (
+    <GoogleLogin
+        clientId={clientId}
+        buttonText="Sign in with Google"
+        onSuccess={responseGoogle}
+        onFailure={handleFailure}
+        cookiePolicy={'single_host_origin'}
+    />
+);
+
+export default GoogleAuth;
