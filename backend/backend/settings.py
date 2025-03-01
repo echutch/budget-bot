@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(-9adjye-4_@ek-se3_9&_9eado3zf%5sb7%aear3j#awqtj56'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', "your-default-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,6 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 # backend/backend/settings.py
-GOOGLE_OAUTH2_CLIENT_ID = 'Y64418966689-19v9ub4d8k6ou039i88nut2pfohnuejv.apps.googleusercontent.com'  # Replace with your Google OAuth Client ID
-GOOGLE_OAUTH2_CLIENT_SECRET = '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'  # Replace with your Google OAuth Client Secret
-GOOGLE_OAUTH2_REDIRECT_URI = 'http://localhost:8000/auth/callback'  # Must match the redirect URI in Google Cloud
+GOOGLE_OAUTH2_CLIENT_ID = os.getenv('GOOGLE_OAUTH2_CLIENT_ID')  # Replace with your Google OAuth Client ID
+GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('GOOGLE_OAUTH2_CLIENT_SECRET')  # Replace with your Google OAuth Client Secret
+GOOGLE_OAUTH2_REDIRECT_URI = os.getenv('GOOGLE_OAUTH2_REDIRECT_URI')  # Must match the redirect URI in Google Cloud
