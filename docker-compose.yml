@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - frontend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    volumes:
+      - ./frontend:/app
+      - node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+
+
+volumes:
+  node_modules:
