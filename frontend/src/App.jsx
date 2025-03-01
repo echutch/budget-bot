@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleAuth from './registration';
+import GoogleAuth from './GoogleAuth'; // Ensure this matches the correct filename
 
 const App = () => (
     <div>
