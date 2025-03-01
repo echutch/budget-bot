@@ -1,13 +1,11 @@
-import './App.css';
-import RegisterForm from './registration'; // Update the import to match the file name
+import React from 'react';
+import GoogleAuth from './registration';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Budget Bot</h1>
-      <RegisterForm />
+const App = () => (
+    <div>
+        <h1>Budget Bot</h1>
+        <GoogleAuth />
     </div>
-  );
-}
+);
 
 export default App;

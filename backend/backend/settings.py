@@ -127,6 +127,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 # backend/backend/settings.py
-GOOGLE_OAUTH2_CLIENT_ID = 'Y64418966689-19v9ub4d8k6ou039i88nut2pfohnuejv.apps.googleusercontent.com'  # Replace with your Google OAuth Client ID
+GOOGLE_OAUTH2_CLIENT_ID = '64418966689-19v9ub4d8k6ou039i88nut2pfohnuejv.apps.googleusercontent.com'  # Replace with your Google OAuth Client ID
 GOOGLE_OAUTH2_CLIENT_SECRET = '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'  # Replace with your Google OAuth Client Secret
 GOOGLE_OAUTH2_REDIRECT_URI = 'http://localhost:8000/auth/callback'  # Must match the redirect URI in Google Cloud
