@@ -3,7 +3,7 @@ import GoogleAuth from './GoogleAuth'; // Ensure this matches the correct filena
 
 const App = () => (
     <div>
-        <h1>Budget Bot</h1>
+        <h1>Budget bot</h1>
         <GoogleAuth />
     </div>
 );
