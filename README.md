@@ -16,3 +16,8 @@ Testing git setup
 Frontend: 
 cd frontend
 npm install
+
+Docker:
+docker compose build (run once)
+docker compose up (start container)
+docker compose down
