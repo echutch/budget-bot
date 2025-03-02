@@ -5,7 +5,7 @@ const clientId = "YOUR_CLIENT_ID"; // Replace with your actual Google OAuth Clie
 
 const responseGoogle = (response) => {
   console.log("Login Success:", response);
-  fetch("http://localhost:8000/auth/google/", {
+  fetch("http://localhost:8000/api/auth/google/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

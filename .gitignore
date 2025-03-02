@@ -1,1 +1,5 @@
 package*.json
+.env
+backend\backend\__pycache__
+backend\email_handler\__pycache__
+frontend\node_modules
