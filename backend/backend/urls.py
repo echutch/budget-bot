@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from users.views import google_auth, google_auth_callback
-from email_handler.views import sms_reply
+from . import views
+#from email_handler.views import sms_reply
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/google/", google_auth, name="google_auth"),
     path("auth/callback/", google_auth_callback, name="google_auth_callback"),
-    path('sms/', sms_reply, name='sms_reply'),
+    #path('sms/', sms_reply, name='sms_reply'),
+    path('', views.home, name='home')
 ]
 
 

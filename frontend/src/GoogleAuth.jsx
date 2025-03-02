@@ -1,11 +1,11 @@
 import React from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
-const clientId = "YOUR_CLIENT_ID"; // Replace with your actual Google OAuth Client ID
+const clientId = "64418966689-19v9ub4d8k6ou039i88nut2pfohnuejv"; 
 
 const responseGoogle = (response) => {
   console.log("Login Success:", response);
-  fetch("http://localhost:8000/api/auth/google/", {
+  fetch("http://localhost:8000/auth/google/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
